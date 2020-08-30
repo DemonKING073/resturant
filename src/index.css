@@ -31,7 +31,7 @@ nav a{
 }
 /* Homepage CSS */
 section{
-  height:90vh;
+  height:100vh;
 }
 .first{
   background:url('./assets/foods.jpg');
@@ -54,4 +54,93 @@ section{
   margin-top:3em;
   text-align: center;
   width:80%;
+}
+.second{
+  background:white;
+  display:flex;
+  flex-direction: row;
+  position: relative;
+}
+.text-area{
+  width:65%;
+  height:100%;
+  background:white;
+}
+.fruit-background{
+  background:url('./assets/fruit-back.jpg');
+  background-size: cover;
+  background-position:center;
+  height:100%;
+  width:35%;
+}
+.header{
+  position: absolute;
+  font-family: Baskerville Old Face;
+  color:#2B2F42;
+  font-size:2.7em;
+  font-weight: bolder;
+  top:1em;
+  left:39%;
+}
+.order{
+  position: absolute;
+  font-size:2em;
+  top:35%;
+  left:15%;
+  height:20vh;
+  width:70%;
+  font-family: Leelawadee UI;
+  color:#888DA7;
+}
+.btn-div{
+  height:20vh;
+  position: absolute;
+  bottom:10%;
+  left:15%;
+}
+.btn-div button{
+  color:white;
+  width:7em;
+  border:none;
+  border-radius: 5px;
+  padding:10px;
+  background:#2699FB;
+  margin:1.5em;
+  font-size:1em;
+  font-family: Arial;
+}
+.third{
+  background: url('./assets//background.jpg');
+  background-size: cover;
+  background-position:center;
+  position: relative;
+}
+
+
+/* Footer CSS */
+footer{
+  background:#303633;
+  align-items: center;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr auto;
+}
+.small{
+  grid-template-columns: 1/2;
+}
+.footer-info{
+  grid-template-columns: 3/4;
+  text-align: start;
+  color:white;
+  font-size:.8em;
+}
+.icon-div{
+  grid-template-columns: 4/5;
+  display:flex;
+  align-items: flex-end;
+  margin-right: 2em;
+}
+.icon-div img{
+  padding:5px;
+  height:40px;
+  width:40px;
 }
