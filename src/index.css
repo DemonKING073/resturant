@@ -115,19 +115,205 @@ section{
   background-position:center;
   position: relative;
 }
+.special-header{
+  font-family: Baskerville Old Face;
+  color:#2B2F42;
+  font-size:3.5em;
+  font-weight: bolder;
+  text-align: center;
+  padding-top:.6em;
+}
+.container{
+  position: relative;
+  height:60vh;
+  margin: 0 auto;
+  width: 45%;
+  margin-top:5em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 10px;
+}
+.images{
+  height:50vh;
+  width:100%;
+  cursor: pointer;
+}
+.card-text{
+  text-align: center;
+  color:#565656 ;
+}
+/* About page CSS */
+.about{
+  background:url('./assets/fruit-back2.jpg');
+  background-size:cover;
+  background-position:right;
+}
+.section-heading{
+  font-size:3em;
+  font-family: Tahoma;
+  font-weight: bolder;
+  text-align: center;
+  padding-top: 1em;
+  color:#2B2F42;
+}
+.about-text{
+  width:80%;
+  font-family: arial;
+  font-weight: bold;
+  text-align: center;
+  font-size:2em;
+  margin:0 auto;
+  height:20vh;
+  margin-left: 1em;
+  margin-top:.5em;
+  color:#725E54;
+}
+.about-text p{
+  margin-bottom: 10px;
+}
+.himawari{
+  margin-right:2em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 10px;
+}
+.himawari img{
+  height:300px;
+  widows: 100%;
+  border-radius: 10px;
+}
+.himawari p{
+  text-align: center;
+  color:#2f47b7;
+  font-size:1em;
+  font-weight: bold;
+  padding:10px;
+}
+.about-container{
+  display:flex;
+  flex-direction: row;
+  margin-top:2em;
+}
 
+/* Contact CSS */
+.contact{
+  background:url('./assets/rain.jpg');
+  background-size: cover;
+  background-position:center;
+}
+.color{
+  color:#28A1BC  ;
+}
+.box{
+  width:60%;
+  margin:0 auto;
+  margin-top:2em;
+  height:70vh;
+  background:inherit;
+  border-radius: 10px;
+}
+.form-heading{
+  padding-top:1em;
+  text-align: center;
+  color:#DAE7F8 ;
+  margin-bottom: 1em;
+}
+form{
+  height:100%;
+}
+fieldset {  
+  width: 25vw;
+  margin: 0 auto;
+	border: medium none !important;
+  padding: 0;
+  margin-bottom: .8em;
+}
+
+textarea{
+  height:20vh;
+  width:25vw;
+  font-size:1em;
+  outline-color: none;
+  background:#C1C1C1;
+  color:#484848 ;
+}
+textarea:focus{
+  outline-color:#8EBCFB ;
+  background:white;
+}
+input{
+  color:#484848 ;
+  height:1.8em;
+  font-size:1em;
+  width:100%;
+  outline-color: none;
+  background:#C1C1C1;
+  border:none;
+  border-radius: 2px;
+}
+input:focus{
+  background:white;
+  outline-color: #8EBCFB;
+}
+input::placeholder{
+  padding:5px;
+}
+.btn{
+  color:white;
+  background:#8EBCFB  ;
+  border:none;
+  border-radius: 5px;
+  width:100%;
+  height:2em;
+  margin-top:1em;
+  cursor: pointer;
+  font-size:1.3em;
+}
+.btn:hover{
+  background:#B3FB8E ;
+}
+
+/* Menu CSS */
+.menu{
+  background: url('./assets/color.jpg');
+  background-size: cover;
+  background-position:center;
+}
+.short-width{
+  width:80%;
+  margin:0 auto;
+}
+.food-container{
+  margin-top:2em;
+  display: flex;
+  justify-content: space-between;
+}
+.food-title{
+  font-size:1.2em;
+  font-weight: bolder;
+}
+.explore{
+  font-size:1.2em;
+}
+.food-lists{
+
+  margin:0 auto;
+  height:50vh;
+  background:red;
+  margin-top:1em;
+  
+}
 
 /* Footer CSS */
 footer{
   background:#303633;
   align-items: center;
   display:grid;
-  grid-template-columns: 1fr auto 1fr auto;
+  grid-template-columns: auto auto 1fr auto;
 }
 .small{
   grid-template-columns: 1/2;
 }
 .footer-info{
+  margin-left:10px;
   grid-template-columns: 3/4;
   text-align: start;
   color:white;

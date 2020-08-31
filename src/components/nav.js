@@ -4,7 +4,9 @@ import React from 'react';
 const Nav=()=>{
     return(
         <nav>
-            <div className="logo-name">Himawari Dinner</div>
+            <Link to="/">
+                <div className="logo-name">Himawari Dinner</div>
+            </Link>
             <div className="nav-links">
                 <ul>
                     <Link to="/">

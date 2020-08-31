@@ -1,6 +1,35 @@
 import React from 'react';
+import 'react-slideshow-image/dist/styles.css';
+import { Zoom } from 'react-slideshow-image';
+import Chicken from '../assets/chicken.jpg';
+import VegBalls from '../assets/VegieBalls.jpg';
+import Juice from '../assets/juice.jpg';
+import Cake from '../assets/lemonCake.png';
 
 const Home=()=>{
+    const  data = [{
+        title: "Vegie Balls",
+        desc: "dsfdsfdsf",
+        url: VegBalls
+      }, {
+        title: "Spicy Chicken Legs",
+        desc: "sdfsdfdsf",
+        url: Chicken
+      }, {
+        title: "Lemon Cake",
+        desc: "sdfdsfsd",
+        url: Cake
+      },  {
+        title: "Banana Shake",
+        desc: "sdfdsfdsfd",
+        url: Juice
+      }];
+      const zoomInProperties = {
+        indicators: true,
+        scale: 1.4
+      }
+     
+
     return(
         <>
         <section className="section first">
@@ -29,8 +58,30 @@ const Home=()=>{
 
         </section>
         <section className="section third"> 
-        <div className="header">
+        <div className="special-header">
             Our Specials
+        </div>
+        <div className="container">
+            <div className="card">
+                <Zoom {...zoomInProperties}>
+                    {
+                    data.map((item,index)=>{
+                        return(
+                            <div className="card">
+                                <img  className="images" src={item.url} key={index} alt={item.title}/>
+                                <div className="card-text">
+                                    <h2>{item.title}</h2>
+                                    <p>{item.desc}</p>
+                                </div>
+                            </div>
+                        );
+                    })
+                    }
+                        
+                </Zoom>
+                
+            </div>
+            
         </div>
 
         </section>
