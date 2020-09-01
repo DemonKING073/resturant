@@ -276,6 +276,7 @@ input::placeholder{
   background: url('./assets/color.jpg');
   background-size: cover;
   background-position:center;
+  height:300vh;
 }
 .short-width{
   width:80%;
@@ -294,12 +295,41 @@ input::placeholder{
   font-size:1.2em;
 }
 .food-lists{
-
+  background:inherit;
+  background-image: linear-gradient(#5773FE,yellow);
   margin:0 auto;
-  height:50vh;
-  background:red;
-  margin-top:1em;
-  
+  height:49vh;
+  margin-top:1em; 
+}
+.card-menu{
+  width:200px;
+  background:#C8C8C8;
+  height:96%;
+  margin:5px;
+}
+.card-menu img{
+  width:100%;
+  height:80%;
+  padding:5px;
+}
+.menu-title{
+  text-align: center;
+  color:#2E3557 ;
+}
+.card-bottom{
+  display:flex;
+  justify-content: space-around;
+  margin:5px;
+  align-items: center;
+  color:#2E3142   ;
+}
+.cart-btn{
+  color:white;
+  padding:3px;
+  background:#536BE3;
+  border:1px solid #2E409B ;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 /* Footer CSS */
