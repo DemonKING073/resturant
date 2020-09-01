@@ -110,7 +110,7 @@ section{
   font-family: Arial;
 }
 .third{
-  background: url('./assets//background.jpg');
+  background: url('./assets/fruit-back2.jpg');
   background-size: cover;
   background-position:center;
   position: relative;
@@ -123,24 +123,27 @@ section{
   text-align: center;
   padding-top:.6em;
 }
-.container{
-  position: relative;
-  height:60vh;
-  margin: 0 auto;
-  width: 45%;
-  margin-top:5em;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 10px;
-}
+
 .images{
-  height:50vh;
+  height:300px;
   width:100%;
-  cursor: pointer;
+  padding:5px;
+  border-radius: 5px;
 }
-.card-text{
+.card{
+  margin:0 auto;
+  border-radius: 5px;
+  width:60%;
+  height:65vh;
+  margin-top:3em;
+  background:#FD8F88 ;
+}
+.card-title{
+  color:#CFCFD0 ;
+  font-size:2em;
   text-align: center;
-  color:#565656 ;
 }
+
 /* About page CSS */
 .about{
   background:url('./assets/fruit-back2.jpg');
@@ -292,7 +295,7 @@ input::placeholder{
   font-weight: bolder;
 }
 .explore{
-  font-size:1.2em;
+  font-size:1em;
 }
 .food-lists{
   background:inherit;

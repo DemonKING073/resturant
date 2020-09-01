@@ -25,7 +25,7 @@ const Home=()=>{
         url: Juice
       }];
       const zoomInProperties = {
-        indicators: true,
+        indicators: false,
         scale: 1.4
       }
      
@@ -61,18 +61,14 @@ const Home=()=>{
         <div className="special-header">
             Our Specials
         </div>
-        <div className="container">
-            <div className="card">
+        <div className="card">
                 <Zoom {...zoomInProperties}>
                     {
                     data.map((item,index)=>{
                         return(
-                            <div className="card">
+                            <div>
                                 <img  className="images" src={item.url} key={index} alt={item.title}/>
-                                <div className="card-text">
-                                    <h2>{item.title}</h2>
-                                    <p>{item.desc}</p>
-                                </div>
+                                <div className="card-title">{item.title}</div>
                             </div>
                         );
                     })
@@ -80,8 +76,6 @@ const Home=()=>{
                         
                 </Zoom>
                 
-            </div>
-            
         </div>
 
         </section>

@@ -15,7 +15,7 @@ const Card=(props)=>{
                         Price: $<span >{props.price}</span>
                     </div>
                     <div>
-                        <button className="cart-btn">Add to Cart</button>
+                        <button className="cart-btn">Add Item</button>
                     </div>
                 </div>
             </div>

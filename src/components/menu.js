@@ -77,6 +77,37 @@ const Menu=()=>{
                     })}
                     </Slider>
                 </div>
+                <div className="food-container">
+                    <span className="food-title">Meals</span>
+                    <span className="explore">See All</span>
+                </div>
+                <div className="food-lists">
+                    <Slider {...settings}>
+                    {fastFoods.map((item,index)=>{
+                        return(
+                            <>
+                            <Card key={index} title={item.title} img={item.imgSrc} price={item.price} desc={item.desc}/>
+                            </>
+                        );
+                    })}
+                    </Slider>
+                </div>
+                <div className="food-container">
+                    <span className="food-title">Drinks</span>
+                    <span className="explore">See All</span>
+                </div>
+                <div className="food-lists">
+                    <Slider {...settings}>
+                    {fastFoods.map((item,index)=>{
+                        return(
+                            <>
+                            <Card key={index} title={item.title} img={item.imgSrc} price={item.price} desc={item.desc}/>
+                            </>
+                        );
+                    })}
+                    </Slider>
+                </div>
+
             </div>
         </section>
     );
