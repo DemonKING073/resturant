@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Jockey+One&family=Lobster&display=swap');
 *{
   box-sizing: border-box;
   margin:0;
   padding:0;
+  font-family: Fira Sans Condensed;
 }
 
 /* Nav CSS */
@@ -14,6 +16,11 @@ nav{
   justify-content: space-between;
   align-items: center;
   height:8vh;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999;
+  width:100%;
 }
 nav ul{
   display:flex;
@@ -23,12 +30,34 @@ nav a{
   text-decoration:none;
   margin-right: 1.3em;
   color:white;
+  display:flex;
+  align-items: center;
+}
+.cart-icon-div{
+  margin-right:2px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.cart-icon-div img{
+  height:25px;
+  width:25px;
+}
+.counter{
+  position:absolute;
+  left:10px;
+  font-size:15px;
+  color:#EC4E20;
 }
 .logo-name{
   color:white;
   margin-left:3em;
   font-weight: bolder;
+  font-family: Lobster;
+  font-size:1.5em;
+  letter-spacing: 1px;
+  font-weight: lighter;
 }
+
 /* Homepage CSS */
 section{
   height:100vh;
@@ -40,7 +69,7 @@ section{
 }
 .quote{
   color:white;
-  font-family: Algerian;
+  font-family: Jockey One;
   font-size:3em;
   text-align: center;
   margin:0 auto;
@@ -49,9 +78,8 @@ section{
 .text{
   margin:0 auto;
   color:#A9A6AA;
-  font-family: Cooper;
-  font-size:2em;
-  margin-top:3em;
+  font-size:1.8em;
+  margin-top:.5em;
   text-align: center;
   width:80%;
 }
@@ -75,28 +103,35 @@ section{
 }
 .header{
   position: absolute;
-  font-family: Baskerville Old Face;
-  color:#2B2F42;
-  font-size:2.7em;
+  color:#69995D;
+  font-size:3.5em;
   font-weight: bolder;
+  text-align: center;
   top:1em;
-  left:39%;
+  left:35%;
 }
 .order{
   position: absolute;
   font-size:2em;
-  top:35%;
+  top:30%;
   left:15%;
   height:20vh;
   width:70%;
   font-family: Leelawadee UI;
   color:#888DA7;
 }
+.order p{
+  margin-bottom: 1em;
+  color:#A9A6AA;
+}
 .btn-div{
   height:20vh;
-  position: absolute;
-  bottom:10%;
-  left:15%;
+  width:40%;
+  margin:0 auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2em;
 }
 .btn-div button{
   color:white;
@@ -104,8 +139,7 @@ section{
   border:none;
   border-radius: 5px;
   padding:10px;
-  background:#2699FB;
-  margin:1.5em;
+  background:#EC4E20;
   font-size:1em;
   font-family: Arial;
 }
@@ -116,8 +150,7 @@ section{
   position: relative;
 }
 .special-header{
-  font-family: Baskerville Old Face;
-  color:#2B2F42;
+  color:#69995D;
   font-size:3.5em;
   font-weight: bolder;
   text-align: center;
@@ -136,27 +169,26 @@ section{
   width:60%;
   height:65vh;
   margin-top:3em;
-  background:#FD8F88 ;
+  background:#A9A6AA ;
 }
 .card-title{
-  color:#CFCFD0 ;
+  color:#FFF ;
   font-size:2em;
   text-align: center;
 }
 
 /* About page CSS */
 .about{
-  background:url('./assets/fruit-back2.jpg');
+  background:url('./assets/color.jpg');
   background-size:cover;
   background-position:right;
 }
 .section-heading{
   font-size:3em;
-  font-family: Tahoma;
   font-weight: bolder;
   text-align: center;
   padding-top: 1em;
-  color:#2B2F42;
+  color:#EC4E20;
 }
 .about-text{
   width:80%;
@@ -168,11 +200,14 @@ section{
   height:20vh;
   margin-left: 1em;
   margin-top:.5em;
-  color:#725E54;
+  color:#F7FFF6 ;
 }
 .about-text p{
+  padding-right:10px;
   margin-bottom: 10px;
+
 }
+
 .himawari{
   margin-right:2em;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -198,19 +233,19 @@ section{
 
 /* Contact CSS */
 .contact{
-  background:url('./assets/rain.jpg');
+  background:url('./assets/color.jpg');
   background-size: cover;
   background-position:center;
 }
-.color{
-  color:#28A1BC  ;
-}
+
 .box{
   width:60%;
   margin:0 auto;
   margin-top:2em;
   height:70vh;
-  background:inherit;
+  background:url('./assets/rain.jpg');
+  background-size: cover;
+  background-position:center;
   border-radius: 10px;
 }
 .form-heading{
@@ -261,7 +296,7 @@ input::placeholder{
 }
 .btn{
   color:white;
-  background:#8EBCFB  ;
+  background:#EC4E20  ;
   border:none;
   border-radius: 5px;
   width:100%;
@@ -271,7 +306,7 @@ input::placeholder{
   font-size:1.3em;
 }
 .btn:hover{
-  background:#B3FB8E ;
+  background:#57F936  ;
 }
 
 /* Menu CSS */
@@ -279,7 +314,7 @@ input::placeholder{
   background: url('./assets/color.jpg');
   background-size: cover;
   background-position:center;
-  height:300vh;
+  height:280vh;
 }
 .short-width{
   width:80%;
@@ -333,6 +368,89 @@ input::placeholder{
   border:1px solid #2E409B ;
   border-radius: 5px;
   margin-bottom: 5px;
+}
+
+/* Cart CSS */
+.main-cart{
+  background:url('./assets/color.jpg');
+  height:auto;
+}
+.white-space{
+  height:4em;
+}
+.total{
+  width:30vw;
+  margin: 0 auto;
+  margin-top:2.8em;
+  padding:10px;
+  text-align: center;
+  border:1px solid #D1D1D1;
+}
+.your-order{
+  margin-top:2.8em;
+  color:#262626 ;
+  display:flex;
+  justify-content: space-between;
+  border-bottom:1px solid black;
+}
+.odr-title{
+  font-size:1.2em;
+  font-weight: bold;
+}
+.total button{
+  color:white;
+  background:#EC4E20;
+  font-size:1em;
+  margin-top:5px;
+  padding:5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.total button:hover{
+  background:#57F936;
+}
+
+.row{
+  display:grid;
+  grid-template-columns: auto 12fr auto;
+  border-bottom:1px solid #8be8cb ;
+}
+.row img{
+  height:140px;
+  width:140px;
+  padding:5px;
+}
+.row-header{
+  font-size:2em;
+  color:#F7FFF6;
+  font-weight: bold;
+}
+.price{
+  font-size:1.5em;
+  font-weight: bold;
+  color:#383434 ;
+}
+.row-desc{
+  margin:10px;
+  color:#393939  ;
+}
+.row-qty{
+  margin:10px;
+}
+.row-qty select{
+  font-size:1.2em;
+  margin-right:1em;
+  border-radius: 5px;
+  color:#393939;
+}
+.row-qty button{
+  font-size:.8em;
+  height:2em;
+  padding:3px;
+  border:none;
+  border-radius: 5px;
+  background: #FF3A3A ;
+  color:white;
 }
 
 /* Footer CSS */

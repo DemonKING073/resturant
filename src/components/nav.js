@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import Cart from '../assets/cart.svg';
 import React from 'react';
 
 const Nav=()=>{
@@ -9,9 +10,6 @@ const Nav=()=>{
             </Link>
             <div className="nav-links">
                 <ul>
-                    <Link to="/">
-                        <li>Home</li>
-                    </Link>
                     <Link to="/menu">
                         <li>Menu</li>
                     </Link>
@@ -20,6 +18,13 @@ const Nav=()=>{
                     </Link>
                     <Link to="/about">
                         <li>About</li>
+                    </Link>
+                    <Link to="/cart" className="nav-cart-link">
+                            <div className="cart-icon-div">
+                                <img src={Cart} alt="logo"/>
+                                <span className="counter">9</span>
+                            </div>
+                            <div><li>Cart</li></div>
                     </Link>
                 </ul>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import 'react-slideshow-image/dist/styles.css';
 import { Zoom } from 'react-slideshow-image';
 import Chicken from '../assets/chicken.jpg';
@@ -7,6 +8,14 @@ import Juice from '../assets/juice.jpg';
 import Cake from '../assets/lemonCake.png';
 
 const Home=()=>{
+    const history=useHistory();
+    const about=()=>{
+        history.push('/about');
+    }
+    const menu=()=>{
+        history.push('/menu');
+    }
+
     const  data = [{
         title: "Vegie Balls",
         desc: "dsfdsfdsf",
@@ -39,6 +48,11 @@ const Home=()=>{
             <div className="text">
                 We believe in not only having delicious foods but nutritious foods that you can feel good about eating.
             </div>
+            <div className="btn-div">
+                    <button onClick={menu}>Menu</button>
+                    <button onClick={about}>About us</button>
+
+                </div>
         </section>
         <section className="section second">
             <div className="text-area">
@@ -46,12 +60,10 @@ const Home=()=>{
                     Order Online
                 </div>
                 <div className="order">
-                    Our resturant is just opened and it's coverage is just our region. Don't worry! Soon we'll cover more regions as soon as possible.
+                    <p>Our resturant is just opened and it's coverage is just our region. Don't worry! Soon we'll cover more regions as soon as possible.</p>
+                    <p>We provide homemade delicious foods, fruits and sugar free sweets. We also have seperate kitchen for vegetarian and for meat lovers.</p>
                 </div>
-                <div className="btn-div">
-                    <button>Order Now</button>
-                    <button>Menu</button>
-                </div>
+                
 
             </div>
             <div className="fruit-background"></div>

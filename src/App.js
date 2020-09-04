@@ -6,6 +6,7 @@ import Home from './components/home';
 import Menu from './components/menu';
 import Contact from './components/contact';
 import About from './components/about';
+import Cart from './components/cart';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/menu" component={Menu} />
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
+          <Route path="/cart" component={Cart} />
         </Switch> 
       </Router>
       <Footer />

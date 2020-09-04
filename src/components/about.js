@@ -9,7 +9,7 @@ const About=()=>{
             </div>
             <div className="about-container">
                 <div className="about-text">
-                    <p>Our resturant provides healthy and fresh foods all day.</p>
+                    <p className="small-margin">Our resturant provides healthy and fresh foods all day.</p>
                     <p>We provide homemade delicious foods, fruits and sugar free sweets.</p>
                     <p>We also have seperate kitchen for vegetarian and for meat lovers.</p>
                     <p>Our name inspired by Uzumaki Himawari.</p>
