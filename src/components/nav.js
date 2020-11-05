@@ -1,8 +1,10 @@
 import {Link} from 'react-router-dom';
 import Cart from '../assets/cart.svg';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Nav=()=>{
+    const counter = useSelector(state=>state.cart.count)
     return(
         <nav>
             <Link to="/">
@@ -13,8 +15,8 @@ const Nav=()=>{
                     <Link to="/menu">
                         <li>Menu</li>
                     </Link>
-                    <Link to="/contact">
-                        <li>Contact</li>
+                    <Link to="/login">
+                        <li>Login</li>
                     </Link>
                     <Link to="/about">
                         <li>About</li>
@@ -22,7 +24,7 @@ const Nav=()=>{
                     <Link to="/cart" className="nav-cart-link">
                             <div className="cart-icon-div">
                                 <img src={Cart} alt="logo"/>
-                                <span className="counter">9</span>
+                                <span className="counter">{counter}</span>
                             </div>
                             <div><li>Cart</li></div>
                     </Link>

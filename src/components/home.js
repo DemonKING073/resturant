@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import 'react-slideshow-image/dist/styles.css';
 import { Zoom } from 'react-slideshow-image';
-import Chicken from '../assets/chicken.jpg';
-import VegBalls from '../assets/VegieBalls.jpg';
-import Juice from '../assets/juice.jpg';
-import Cake from '../assets/lemonCake.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from '../actions/dataActions';
+
 
 const Home=()=>{
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(fetchData());
+    },[dispatch]);
     const history=useHistory();
     const about=()=>{
         history.push('/about');
@@ -15,38 +18,25 @@ const Home=()=>{
     const menu=()=>{
         history.push('/menu');
     }
-
-    const  data = [{
-        title: "Vegie Balls",
-        desc: "dsfdsfdsf",
-        url: VegBalls
-      }, {
-        title: "Spicy Chicken Legs",
-        desc: "sdfsdfdsf",
-        url: Chicken
-      }, {
-        title: "Lemon Cake",
-        desc: "sdfdsfsd",
-        url: Cake
-      },  {
-        title: "Banana Shake",
-        desc: "sdfdsfdsfd",
-        url: Juice
-      }];
-      const zoomInProperties = {
+    const zoomInProperties = {
         indicators: false,
-        scale: 1.4
-      }
-     
+        scale: 1.4,
+    }
 
+    const Datas = useSelector(state=>state.data.data.products);
     return(
         <>
         <section className="section first">
             <div className="quote">
                 LIVE LONGER WITH HEALTHY FOODS
             </div>
-            <div className="text">
-                We believe in not only having delicious foods but nutritious foods that you can feel good about eating.
+            <div className="quote-div">
+                <div className="text">
+                    We believe in not only having delicious foods but nutritious foods that you can feel good about eating.
+                </div>
+                <div className="text">
+                    Pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.
+                </div>
             </div>
             <div className="btn-div">
                     <button onClick={menu}>Menu</button>
@@ -54,39 +44,37 @@ const Home=()=>{
 
                 </div>
         </section>
-        <section className="section second">
-            <div className="text-area">
-                <div className="header">
+        <section className="section homebackground">
+                <div className="special-header">
                     Order Online
                 </div>
-                <div className="order">
-                    <p>Our resturant is just opened and it's coverage is just our region. Don't worry! Soon we'll cover more regions as soon as possible.</p>
-                    <p>We provide homemade delicious foods, fruits and sugar free sweets. We also have seperate kitchen for vegetarian and for meat lovers.</p>
-                </div>
-                
-
-            </div>
-            <div className="fruit-background"></div>
-
+                <p className="info">We provide homemade delicious foods, fruits and sugar free sweets. We also have seperate kitchen for vegetarian and for meat lovers.</p>
+                <p className="info">Our resturant is just opened and it's coverage is just our region. Don't worry! Soon we'll cover more regions as soon as possible.</p>
+                <p className="info">We also provide lodging at reasonable price</p>
         </section>
-        <section className="section third"> 
+        <section className="homebackground"> 
         <div className="special-header">
             Our Specials
         </div>
         <div className="card">
+            {
+                Datas===undefined?
+                <p>Loading...</p>:
                 <Zoom {...zoomInProperties}>
                     {
-                    data.map((item,index)=>{
-                        return(
-                            <div>
-                                <img  className="images" src={item.url} key={index} alt={item.title}/>
-                                <div className="card-title">{item.title}</div>
-                            </div>
-                        );
-                    })
-                    }
-                        
-                </Zoom>
+                        Datas.map((item)=>{
+                            return(
+                                <div key={item._id}>
+                                    <img className="images" src={item.imageUrl}  alt={item.name}/>
+                                    <div className="card-title">{item.name}</div>
+                                    <p className="special-desc">{item.productDesc}</p>
+                                </div>
+                            );
+                        })
+                    }      
+                </Zoom>    
+            }
+                
                 
         </div>
 

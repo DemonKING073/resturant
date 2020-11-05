@@ -1,12 +1,20 @@
 import React from 'react';
 
+
+
+
 const Card=(props)=>{
     if(props!==undefined)
     {
-        
-        console.log(props);
+        const Product = {
+            name:props.item.name,
+            price: props.item.price,
+            imageUrl: props.item.imageUrl,
+            desc: props.item.productDesc,
+            _id: props.item._id,
+        }
         return(
-        
+            
             <div className="card-menu">
                 <img src={props.img} alt={props.title} />
                 <h1 className="menu-title">{props.title}</h1>
@@ -15,7 +23,11 @@ const Card=(props)=>{
                         Price: $<span >{props.price}</span>
                     </div>
                     <div>
-                        <button className="cart-btn">Add Item</button>
+                        <button onClick={()=>{
+                            props.checkCart(Product);
+                            props.lamo(Product);
+                        }} 
+                        className="cart-btn">Add Item</button>
                     </div>
                 </div>
             </div>
