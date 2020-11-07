@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -11,29 +11,12 @@ import { cartItemAdd } from '../actions/cartActions';
 
 
 const Menu=()=>{
-    let number = 0;
-    const [check, setCheck] = useState(false);
     const Items = useSelector(state=>state.cart.items);
-    const checkCart = (product) =>{
-        const lamo = Items.map(item=>{
-            if(item._id===product._id){
-                number=1;
-                return 1;
-            }
-            else{
-                number=0;
-                return 0;
-            }
-        });
-        console.log(lamo);
-        number===0?setCheck(false):setCheck(true);
-    }
     const dispatch = useDispatch();
     const addToCart = (product) =>{
-        checkCart(product);
-        if(check===false){
+        const result = Items.find(item => item._id === product._id);
+        if(result===undefined){
             dispatch(cartItemAdd(product));
-            setCheck(true);
         }
         else{
             alert('Item already Added');
@@ -46,10 +29,10 @@ const Menu=()=>{
         slidesToShow: 4,
         slidesToScroll: 1
       };
-    
     useEffect(()=>{
         dispatch(fetchData());
-    },[dispatch,Items]);
+    // eslint-disable-next-line
+    },[]);
     const fastFoods = useSelector(state=>state.data.data.products);
     return(
         <section className="section menu">
@@ -69,7 +52,7 @@ const Menu=()=>{
                             {fastFoods.map((item,index)=>{
                                 return(
                                     <div key={index}>
-                                    <Card checkCart={checkCart} lamo={addToCart} id={item._id} item={item} title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
+                                    <Card  lamo={addToCart} id={item._id} item={item} title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
                                     </div>
                                 )
                             })}
@@ -88,7 +71,7 @@ const Menu=()=>{
                             {fastFoods.map((item, index)=>{
                                 return(
                                     <div key={index}>
-                                    <Card checkCart={checkCart} lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
+                                    <Card  lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
                                     </div>
                                 )
                             })}
@@ -107,7 +90,7 @@ const Menu=()=>{
                             {fastFoods.map((item, index)=>{
                                 return(
                                     <div key={index}>
-                                    <Card checkCart={checkCart} lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
+                                    <Card  lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
                                     </div>
                                 )
                             })}
@@ -126,7 +109,7 @@ const Menu=()=>{
                             {fastFoods.map((item,index)=>{
                                 return(
                                     <div key={index}>
-                                    <Card checkCart={checkCart} lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
+                                    <Card lamo={addToCart} id={item._id} item={item}  title={item.name} img={item.imageUrl} price={item.price} desc={item.productDesc}/>
                                     </div>
                                 )
                             })}

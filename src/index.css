@@ -371,6 +371,7 @@ section{
 /* Cart CSS */
 .main-cart{
   background:url('./assets/color.jpg');
+  min-height: 100vh;
   height:auto;
 }
 .white-space{
@@ -397,6 +398,7 @@ section{
 .odr-title{
   font-size:1.2em;
   font-weight: bold;
+  position: relative;
 }
 .total button{
   color:white;
@@ -430,6 +432,12 @@ section{
   font-size:1.5em;
   font-weight: bold;
   color:#383434 ;
+  position: relative;
+}
+.multiply{
+  position: relative;
+  font-size:.6em ;
+  font-weight: lighter;
 }
 .row-desc{
   margin:10px;
@@ -634,4 +642,14 @@ footer{
 .icon-small{
   height: 15px;
   width: 20px;
+}
+.warning-cart{
+  text-align: center;
+  margin-top: 1em;
+  font-size: 3em;
+  color: #444444 ;
+  text-shadow: 0px 3px 0px #b2a98f,
+  0px 14px 10px rgba(225,225,225,0.3),
+  0px 24px 2px rgba(225,225,225,0.4),
+  0px 34px 30px rgba(225,225,225,0.8);
 }

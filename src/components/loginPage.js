@@ -22,7 +22,6 @@ const LoginPage = () =>{
                 <h1>Login</h1>
                  <form>
                      <div className="textbox">
-                        <i class="fa fa-user" aria-hidden="true"></i>
                         <input type="text" placeholder="Email" />
                      </div>
                      <div className="textbox">

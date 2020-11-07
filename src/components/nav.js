@@ -4,7 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Nav=()=>{
-    const counter = useSelector(state=>state.cart.count)
+    const counter = useSelector(state=>state.cart.count);
     return(
         <nav>
             <Link to="/">
