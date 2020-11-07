@@ -17,3 +17,5 @@ export const CART_TOTAL_ADD ='CART_TOTAL_ADD';
 export const CART_LOCAL_STORAGE = 'CART_LOCAL_STORAGE';
 
 export const ADD_COUNT = 'ADD_COUNT'; 
+
+export const USER_STATUS = 'USER_STATUS'; 

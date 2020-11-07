@@ -17,7 +17,6 @@ import Cart from './components/cart';
 import allReducer from './reducers/allReducer';
 
 
-
 const store = createStore(
   allReducer,
   composeWithDevTools(applyMiddleware(thunk)),
