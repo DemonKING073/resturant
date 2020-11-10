@@ -8,13 +8,14 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Nav from './components/nav';
 import LoginPage from './components/loginPage';
 import RegisterPage from './components/registerPage';
+import OrderPage from './components/orderPage';
 import Footer from './components/footer';
 import Home from './components/home';
 import Menu from './components/menu';
-import Contact from './components/contact';
 import About from './components/about';
 import Cart from './components/cart';
 import allReducer from './reducers/allReducer';
+import ScrollToTop from './components/scrollToTop';
 
 
 const store = createStore(
@@ -30,12 +31,13 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/menu" component={Menu} />
-          <Route path="/contact" component={Contact} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
+          <Route path="/order" component={OrderPage} />
           <Route path="/about" component={About} />
           <Route path="/cart" component={Cart} />
         </Switch> 
+      < ScrollToTop />
       </Router>
       <Footer />
     </Provider>

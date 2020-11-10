@@ -4,6 +4,9 @@ import 'react-slideshow-image/dist/styles.css';
 import { Zoom } from 'react-slideshow-image';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchData } from '../actions/dataActions';
+import { fetchUserDetails } from '../actions/UserActions'
+import axios from 'axios';
+
 
 
 const Home=()=>{
@@ -22,6 +25,21 @@ const Home=()=>{
         indicators: false,
         scale: 1.4,
     }
+
+    const userId = localStorage.getItem('userId');
+
+    const token = localStorage.getItem('token');
+    const config= {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    useEffect(()=>{
+        axios.get(`http://localhost:3000/user/${userId}`,config)
+            .then(res=>dispatch(fetchUserDetails(res.data)))
+            .catch(err=>console.log(err));
+            // eslint-disable-next-line
+    },[]);
 
     const Datas = useSelector(state=>state.data.data.products);
     return(

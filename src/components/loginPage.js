@@ -24,11 +24,14 @@ const LoginPage = () =>{
         dispatch(userStatus());
     }
     const handleSubmit = (e) =>{
+        
         e.preventDefault();
         axios.post('http://localhost:3000/user/login',data)
             .then(res=>{
                 localStorage.setItem('token',res.data.token);
-                localStorage.setItem('isLogged',true)
+                localStorage.setItem('isLogged',true);
+                localStorage.setItem('email',res.data.user.email);
+                localStorage.setItem('userId',res.data.user._id);
                 doRedirecting();
             })
             .catch(err=>{

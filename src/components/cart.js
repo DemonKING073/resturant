@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
+import axios from 'axios';
 import { cartItemQuantity, cartItemQuantityDelete, cartTotalAdd,cartItemDelete } from '../actions/cartActions';
 
 
 const Cart=()=>{
+    const email = localStorage.getItem('email');
+    const token = localStorage.getItem('token')
+    const config= {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+
     const total = useSelector(state=>state.cart.total);
 
     const dispatch = useDispatch();
@@ -45,13 +54,30 @@ const Cart=()=>{
             }   
         })
     }
+    const placingOrder = () =>{
+        if(items.length===0){
+            alert('fuck you man')
+        }else{
+            // eslint-disable-next-line
+            items.map(item=>{
+                const product = {
+                    productId:item._id,
+                    email:email,
+                    total:total,
+                    imageUrl: item.imageUrl,
+                }
+            axios.post('http://localhost:3000/orders/',product,config)
+            })
+            alert('Order Placed!');
+        }
+    }
     return(
         <section className="section main-cart">
             <div className="short-width">
                 <div className="white-space"></div>
                 <div className="total">
                     <h2>Total<span>({counter}</span> items): $<span>{total}</span></h2>
-                    <button>Order Now</button>
+                    <button onClick={placingOrder}>Order Now</button>
                 </div>
                 <div className="your-order">
                     <span className="odr-title">Your Order</span>

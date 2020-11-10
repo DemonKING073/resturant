@@ -19,3 +19,10 @@ export const CART_LOCAL_STORAGE = 'CART_LOCAL_STORAGE';
 export const ADD_COUNT = 'ADD_COUNT'; 
 
 export const USER_STATUS = 'USER_STATUS'; 
+
+export const ADD_ORDER = 'ADD_ORDER'
+
+export const DELETE_ORDER ='DELETE_ORDER';
+
+export const FETCH_USER_DETAILS ='FETCH_USER_DETAILS'; 
+
