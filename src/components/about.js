@@ -4,15 +4,15 @@ import Hima from '../assets/Himawari.png';
 const About=()=>{
     return(
         <section className=" about">
+            <div className="white-space"></div>
             <div className="section-heading">
                 About Us
             </div>
-            <div className="about-container">
+                <div className="himawari">
+                    <p>Uzumaki Himawari </p>  
+                    <img src={Hima} alt="Himawari"/>            
+                </div>
                 <div className="about-text">
-                    {/* <p className="small-margin">Our resturant provides healthy and fresh foods all day.</p>
-                    <p>We provide homemade delicious foods, fruits and sugar free sweets.</p>
-                    <p>We also have seperate kitchen for vegetarian and for meat lovers.</p>
-                    <p>Our name inspired by Uzumaki Himawari.</p> */}
                     <h2>WHO ARE WE.</h2>
                     <p>There's nothing cookie-cutter about Himawari Dinner. Not our people. And definitely not the way we live life.
                         Around here, we don't settle for anythig less than food we're proud to serve. And we don't just clock in. Not when
@@ -35,13 +35,7 @@ const About=()=>{
                     <p>And we've been deliverying that same food and service ever since.</p>
 
                 </div>
-                <div className="himawari">
-                    <p>Uzumaki Himawari </p>  
-                    <img src={Hima} alt="Himawari"/>  
-                                
-                </div>
-            </div>
-            
+                
         </section>
     );
 }

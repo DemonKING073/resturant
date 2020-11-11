@@ -8,6 +8,11 @@
 }
 
 /* Nav CSS */
+.menu-icon{
+  height:50px;
+  width:50px;
+  display:none;
+}
 .user-name{
   text-align: center;
 }
@@ -152,13 +157,12 @@ section{
 }
 
 .btn-div{
-  height:20vh;
   width:40%;
   margin:0 auto;
   display:flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 2em;
+  margin-top: 3em;
 }
 .btn-div button{
   color:white;
@@ -214,13 +218,71 @@ section{
 }
 
 /* About page CSS */
+
 .about{
-  background:url('./assets/color.jpg');
+  background: url('./assets/color.jpg');
+}
+
+.section-heading{
+  font-size:3em;
+  font-weight: bolder;
+  text-align: center;
+  color:#EC4E20;
+  position: relative;
+}
+.himawari{
+  margin-right:2em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 10px;
+  width:300px;
+  position: absolute;
+  top:150px;
+  right:2em;
+}
+.himawari img{
+  height:320px;
+  width:300px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+.himawari p{
+  text-align: center;
+  color:#2f47b7;
+  font-size:1em;
+  font-weight: bold;
+  padding:10px;
+}
+.about-text{
+  width:60%;
+  font-family: arial;
+  font-weight: bold;
+  margin:0 auto;
+  height:20vh;
+  margin-left: 1em;
+  margin-top:.5em;
+  color:#E3E3E3   ;
+}
+.about-text h2{
+  font-size: 2em;
+  color: #2f47b7;
+  margin: 5px;
+  font-family: Fira Sans Condensed;
+}
+.about-text p{
+  font-size: 1.2em;
+  margin-top: 3px;
+  font-weight: thin;
+  color: #E2E2E2;
+}
+
+
+/* .about{ */
+  /* background:url('./assets/color.jpg'); */
   /* background-size:cover;
   background-position:right; */
-  height: 120vh;
-}
-.section-heading{
+  /* height: 120vh;
+} */
+/* .section-heading{
   font-size:3em;
   font-weight: bolder;
   text-align: center;
@@ -270,7 +332,8 @@ section{
   display:flex;
   flex-direction: row;
   margin-top:2em;
-}
+} */
+
 
 /* Menu CSS */
 .menu{
@@ -715,4 +778,155 @@ footer{
   width:80px;
   border-radius: 5px;
   border:2.5px solid gray;
+}
+
+@media screen and (max-width:1300px){
+  .login-img-div{
+    display:none;
+  }
+  .login-page{
+    display:block;
+    position: relative;
+  }
+  .login-box{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+  .responsive-box{
+    height:40vh;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .responsive-box{
+    margin: 0 auto;
+    width: 350px;
+    height: 78%;
+    
+  }
+}
+@media screen and (max-width:1100px){
+  .about-text p{
+    font-size: 16px;
+  }
+  .responsive-box{
+    height:50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+@media screen and (max-width: 960px){
+  .about-text{
+    width:55%;
+  }
+  .responsive-box{
+    height:50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+  
+@media (max-width:609px){
+  .himawari{
+    display:none;
+  }
+  .about-text{
+    width:100%;
+  }
+  .about-text p{
+    width:80%;
+  }
+  .btn-div button{
+    font-size: 10px;
+    margin-top: 0;
+  }
+  .special-header{
+    padding-top: 3em;
+  }
+}
+@media screen and (max-width:850px){
+  .section{
+    height: 90vh;
+  }
+  .menu{
+    height: auto;
+  }
+  .himawari {
+    height:200px;
+    width:200px;
+  }
+  .himawari img{
+    height: 100%;
+    width:100%;
+  }
+  .food-lists:last-child{
+    margin:0
+  }
+  .responsive-box{
+    height:50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  .menu-icon{
+    display:block;
+  }
+  .nav-links{
+    /* display:none; */
+    position:absolute;
+    width:100%;
+    height: 100px;
+    opacity: 0;
+    top:44px;
+    background:#303633;
+  }
+  .add-opacity{
+    position:absolute;
+    width:100%;
+    height: 100px;
+    opacity: 1;
+    top:44px;
+    background:#303633;
+    transition: opacity 1s ease-out;
+  }
+  .add-opacity ul{
+    background:#303633;
+    display:block;
+  }
+  .nav-links ul{
+    background:#303633;
+    display:block;
+  }
+  .add-opacity ul a{
+    font-size: 1.2em;
+    font-weight: bolder;
+    background:#303633;
+    width: 100%;
+    padding-left: 1em;
+  }
+  .nav-links ul a{
+    font-size: 1.2em;
+    font-weight: bolder;
+    background:#303633;
+    width: 100%;
+    padding-left: 1em;
+  }
+  .nav-links ul a:hover{
+    color:#9C9C9C;  
+  }
+  .add-opacity ul a:hover{
+    color:#9C9C9C;  
+  }
 }

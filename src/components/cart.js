@@ -5,6 +5,7 @@ import { cartItemQuantity, cartItemQuantityDelete, cartTotalAdd,cartItemDelete }
 
 
 const Cart=()=>{
+    const isLogged = useSelector(state=>state.user.isLogged);
     const email = localStorage.getItem('email');
     const token = localStorage.getItem('token')
     const config= {
@@ -55,21 +56,26 @@ const Cart=()=>{
         })
     }
     const placingOrder = () =>{
-        if(items.length===0){
-            alert('fuck you man')
+        if(isLogged){
+            if(items.length===0){
+                alert('fuck you man')
+            }else{
+                // eslint-disable-next-line
+                items.map(item=>{
+                    const product = {
+                        productId:item._id,
+                        email:email,
+                        total:total,
+                        imageUrl: item.imageUrl,
+                    }
+                axios.post('http://localhost:3000/orders/',product,config)
+                })
+                alert('Order Placed!');
+            }
         }else{
-            // eslint-disable-next-line
-            items.map(item=>{
-                const product = {
-                    productId:item._id,
-                    email:email,
-                    total:total,
-                    imageUrl: item.imageUrl,
-                }
-            axios.post('http://localhost:3000/orders/',product,config)
-            })
-            alert('Order Placed!');
+            alert('Just Login man');
         }
+            
     }
     return(
         <section className="section main-cart">
