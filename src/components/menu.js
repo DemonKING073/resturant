@@ -22,7 +22,6 @@ const Menu=()=>{
     }else{
         x=1
     }
-    console.log(width);
     const Items = useSelector(state=>state.cart.items);
     const dispatch = useDispatch();
     const addToCart = (product) =>{

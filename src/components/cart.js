@@ -5,8 +5,9 @@ import { cartItemQuantity, cartItemQuantityDelete, cartTotalAdd,cartItemDelete }
 
 
 const Cart=()=>{
-    const isLogged = useSelector(state=>state.user.isLogged);
+    const isLogged = localStorage.getItem('isLogged');
     const email = localStorage.getItem('email');
+    const userName = useSelector(state=>state.user.details.User.name)
     const token = localStorage.getItem('token')
     const config= {
         headers:{
@@ -61,16 +62,19 @@ const Cart=()=>{
                 alert('fuck you man')
             }else{
                 // eslint-disable-next-line
-                items.map(item=>{
-                    const product = {
-                        productId:item._id,
-                        email:email,
-                        total:total,
-                        imageUrl: item.imageUrl,
-                    }
-                axios.post('http://localhost:3000/orders/',product,config)
-                })
-                alert('Order Placed!');
+                const Order = {
+                    email:email,
+                    userName:userName,
+                    totalPrice:total,
+                    products:items,
+                }
+                console.log(Order);
+                console.log(config);
+                axios.post('http://localhost:3000/orders/',Order)
+                    .then(res=>{
+                        alert('Order Placed!')
+                    })
+                    .catch(err=>console.log(err));
             }
         }else{
             alert('Just Login man');

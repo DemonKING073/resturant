@@ -1,28 +1,20 @@
 import {Link, useHistory} from 'react-router-dom';
-import Cart from '../assets/cart.svg';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import UserIcon from '../assets/account.svg';
-import MenuIcon from '../assets/menu.svg';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const Nav=()=>{
     
+    const [chris,setChris] = useState(false);
     const userDetails = useSelector(state=>state.user.details.User);
-    
     const [lamo,setLamo] = useState(false)
     const menuHide = () =>{
         setLamo(!lamo);
     }
-    const responsiveMenu =() =>{
-        console.log('buttonClicked');
-        setLamo(!lamo);
-    }
     const history = useHistory();
-    const [navActive, setNavActive] = useState(true)
-;    const toogleClass = () =>{
-        setNavActive(!navActive);
-    }
-    const toOrderPage = () =>{
+        const toOrderPage = () =>{
         history.push('/order')
     }
     const toHomePage = () =>{
@@ -41,81 +33,73 @@ const Nav=()=>{
     if(isLogged){
         return(
             <nav>
-            <Link to="/">
-                <div onClick={()=>setLamo(false)} className="logo-name">Himawari Dinner</div>
-            </Link>
-            <div className={lamo?'add-opacity':'nav-links'}>
-                <ul>
+                <Link to="/">
+                    <h1 className="logo-name">Himawari Dinner</h1>
+                </Link>
+                <div className="menu-icon">
+                    <label htmlFor="check">
+                        <MenuIcon style={{height:25,width:25,cursor:"pointer"}} />
+                    </label>
+                </div>
+                <input type="checkbox" id="check"/>
+                <ul className="nav-links">
                     <Link to="/menu">
-                        <li onClick={menuHide}>Menu</li>
+                        Menu
                     </Link>
                     <Link to="/about">
-                        <li onClick={menuHide}>About</li>
+                        About
                     </Link>
-                    <Link to="/cart" className="nav-cart-link">
-                            <div className="cart-icon-div">
-                                <img  src={Cart} alt="logo"/>
-                                <span className="counter">{counter}</span>
-                            </div>
-                            <div><li onClick={menuHide}>Cart</li></div>
-                    </Link>
-                    <Link to="#">
-                        <li>
-                            <img src={UserIcon} alt="userIcon" onClick={toogleClass} className="user-icon" />
-                            <div className={navActive?'drop-down':null}>
-                                <ul> 
-                                    <li><p className="user-name">{userDetails?userDetails.name:null}</p></li>
-                                    <li><button className="nav-button" onClick={()=>{
-                                        setLamo(false);
-                                        toogleClass();
-                                        toOrderPage();
-                                        }}>Orders</button></li>
-                                    <li><button className="nav-button" onClick={()=>{
-                                        toogleClass();
-                                        setLamo(false);
-                                        logOut();
-                                    }}>Sign Out</button></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </Link>
+                    <Link to="/cart" >
+                        <div className="cart-icon-div">
+                            <span>{counter}</span>
+                            <li onClick={menuHide}><ShoppingCartIcon style={{height:18,width:18}}/>Cart</li>
+                        </div>
+                   </Link>
+                    <li  onClick={()=>setChris(!chris)}>
+                        <Link to="#">
+                            <AccountCircleIcon style={{width:25,height:25}}/>
+                        </Link>
+                        {chris?<ul className="inner-nav">
+                            <li>{userDetails?userDetails.name:null}</li>
+                            <li onClick={()=>toOrderPage()}>Orders</li>
+                            <li onClick={()=>logOut()}>Sign out</li>
+                        </ul>:null}
+                    </li>
+                    
                 </ul>
-            </div>
-            <img className="menu-icon" src={MenuIcon} onClick={()=>responsiveMenu()} alt="menu-icon" />
-        </nav>
-        );
-    }else{
+            </nav>           
+        );}
+        else{
         return(
-            <nav>
-            <Link to="/">
-                <div onClick={()=>setLamo(false)} className="logo-name">Himawari Dinner</div>
-            </Link>
-            
-            <div className={lamo?'add-opacity':'nav-links'}>
-                <ul>
-                    <Link  to="/menu">
-                        <li onClick={menuHide}>Menu</li>
+        <nav>
+                <Link to="/">
+                    <h1 className="logo-name">Himawari Dinner</h1>
+                </Link>
+                <div className="menu-icon">
+                    <label htmlFor="check">
+                        <MenuIcon style={{height:25,width:25,cursor:"pointer"}} />
+                    </label>
+                </div>
+                <input type="checkbox" id="check"/>
+                <ul className="nav-links">
+                    <Link to="/menu">
+                        Menu
+                    </Link>
+                    <Link to="/about">
+                        About
                     </Link>
                     <Link to="/login">
-                        <li onClick={menuHide}>Login</li>
+                        Login
                     </Link>
-                    <Link to="/about">
-                        <li onClick={menuHide}>About</li>
-                    </Link>
-                    <Link onClick={menuHide} to="/cart" className="nav-cart-link">
-                            <div className="cart-icon-div">
-                                <img src={Cart} alt="logo"/>
-                                <span className="counter">{counter}</span>
-                            </div>
-                            <div><li>Cart</li></div>
+                    <Link to="/cart" >
+                        <div className="cart-icon-div">
+                            <span>{counter}</span>
+                            <li onClick={menuHide}><ShoppingCartIcon style={{height:18,width:18}}/>Cart</li>
+                        </div>
                     </Link>
                     
                 </ul>
-            </div>
-            
-                <img src={MenuIcon} alt="menu-icon" onClick={()=>responsiveMenu()} className="menu-icon" />
-            
-        </nav>
+            </nav>
         );
     }
     

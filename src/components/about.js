@@ -3,7 +3,7 @@ import Hima from '../assets/Himawari.png';
 
 const About=()=>{
     return(
-        <section className=" about">
+        <div className="about-section">
             <div className="white-space"></div>
             <div className="section-heading">
                 About Us
@@ -36,7 +36,7 @@ const About=()=>{
 
                 </div>
                 
-        </section>
+        </div>
     );
 }
 
