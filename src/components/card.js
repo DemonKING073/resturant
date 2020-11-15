@@ -22,7 +22,7 @@ const Card=(props)=>{
         const Product = {
             name:props.item.name,
             price: props.item.price,
-            imageUrl: props.item.imageUrl,
+            imageUrl: props.img,
             desc: props.item.productDesc,
             _id: props.item._id,
             quantity:1,

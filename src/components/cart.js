@@ -7,7 +7,7 @@ import { cartItemQuantity, cartItemQuantityDelete, cartTotalAdd,cartItemDelete }
 const Cart=()=>{
     const isLogged = localStorage.getItem('isLogged');
     const email = localStorage.getItem('email');
-    const userName = useSelector(state=>state.user.details.User.name)
+    let userName = useSelector(state=>state.user.details.User.name);
     const token = localStorage.getItem('token')
     const config= {
         headers:{
@@ -19,6 +19,7 @@ const Cart=()=>{
 
     const dispatch = useDispatch();
     const items = useSelector(state=>state.cart.items);
+    console.log(items);
     
     const [quantity, setQuantity]=useState(0);
 

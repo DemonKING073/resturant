@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
 import 'react-slideshow-image/dist/styles.css';
 import { Zoom } from 'react-slideshow-image';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchData } from '../actions/dataActions';
 import { fetchUserDetails } from '../actions/UserActions'
 import axios from 'axios';
@@ -10,6 +10,7 @@ import axios from 'axios';
 
 
 const Home=()=>{
+    const [special,setSpecial] = useState([]);
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(fetchData());
@@ -39,9 +40,16 @@ const Home=()=>{
             .then(res=>dispatch(fetchUserDetails(res.data)))
             .catch(err=>console.log(err));
             // eslint-disable-next-line
+        axios.get('http://localhost:3000/products/getSpecial/true')
+        .then(res=>{
+            setSpecial(res.data.specialProducts);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+        // eslint-disable-next-line 
     },[]);
 
-    const Datas = useSelector(state=>state.data.data.products);
     return(
         <>
         <section className="section first">
@@ -76,14 +84,15 @@ const Home=()=>{
         </div>
         <div className="card">
             {
-                Datas===undefined?
-                <p>Loading...</p>:
+                special.length===0?
+                <p>No Datas</p>:
                 <Zoom {...zoomInProperties}>
                     {
-                        Datas.map((item)=>{
+                        special.map((item)=>{
+                            const a = `http://localhost:3000/${item.productImage}`;
                             return(
                                 <div key={item._id}>
-                                    <img className="images" src={item.imageUrl}  alt={item.name}/>
+                                    <img className="images" src={a}  alt={item.name}/>
                                     <div className="card-title">{item.name}</div>
                                     <p className="special-desc">{item.productDesc}</p>
                                 </div>

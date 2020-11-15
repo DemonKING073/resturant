@@ -22,7 +22,7 @@ const LoginPage = () =>{
         console.log(data);
         axios.post('http://localhost:3000/user/signup',data)
             .then(res=>{
-                alert(res.message);
+                alert('Registered Successfully');
             })
             .catch(err=>{
                 if(err.response.status===409){

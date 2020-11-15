@@ -3,7 +3,11 @@ import * as actions from '../actions/actionTypes';
 const initialState = {
     isLogged:false,
     orders: [],
-    details: {},
+    details: {
+        User:{
+            name:'admin'
+        }
+    },
 }
 
 const userReducer = (state = initialState, action) =>{
