@@ -378,6 +378,7 @@ section{
 .menu-title{
   text-align: center;
   color:#2E3557 ;
+  font-size: 18px;
 }
 .card-bottom{
   display:flex;

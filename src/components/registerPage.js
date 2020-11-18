@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 const LoginPage = () =>{
-    
+    const [verify,setVerify] = useState('');
     const initialState = {
         name:null,
         email:null,
@@ -23,6 +23,8 @@ const LoginPage = () =>{
         axios.post('http://localhost:3000/user/signup',data)
             .then(res=>{
                 alert('Registered Successfully');
+                loginpage();
+
             })
             .catch(err=>{
                 if(err.response.status===409){
@@ -54,12 +56,13 @@ const LoginPage = () =>{
                      </div>
                      <div className="textbox">
                         <i className="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" onChange={(e)=>setVerify(e.target.value)} placeholder="Password" />
                      </div>
                      <div className="textbox">
                         <i className="fa fa-lock" aria-hidden="true"></i>
                         <input type="password" placeholder="Verify Password" onChange={(e)=>setData({...data,password:e.target.value})} />
                      </div>
+                     {verify!==data.password?<h3>Password do not match!</h3>:null}
                     <button className="btn-login" type="submit">Register</button>
                     <h4>Already have account? <button className="btn-login-page" onClick={loginpage}>Login</button></h4>
                  </form>
