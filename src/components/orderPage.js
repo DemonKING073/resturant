@@ -21,7 +21,7 @@ const OrderPage = () =>{
     
    
     const deleteOrder = (orderId) =>{
-        axios.delete('http://localhost:3000/orders/'+orderId,config)
+        axios.delete('https://my-first-resturant.herokuapp.com/orders/'+orderId,config)
             .then(res=>{
                 console.log(res);
                 alert('Order Deleted!')
@@ -29,7 +29,7 @@ const OrderPage = () =>{
             .catch(err=>console.log(err.resposne));
     }
     useEffect(()=>{
-        axios.get(`http://localhost:3000/orders/${email}`,config)
+        axios.get(`https://my-first-resturant.herokuapp.com/orders/${email}`,config)
             .then(res=>{
                 dispatch(addOrder(res.data.orders))
                 console.log(res)

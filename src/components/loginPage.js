@@ -26,7 +26,7 @@ const LoginPage = () =>{
     const handleSubmit = (e) =>{
         
         e.preventDefault();
-        axios.post('http://localhost:3000/user/login',data)
+        axios.post('https://my-first-resturant.herokuapp.com/user/login',data)
             .then(res=>{
                 localStorage.setItem('token',res.data.token);
                 localStorage.setItem('isLogged',true);

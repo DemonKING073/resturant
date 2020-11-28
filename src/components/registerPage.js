@@ -4,7 +4,7 @@ import LoginImage from '../assets/login.jpg';
 import axios from 'axios';
 
 
-const LoginPage = () =>{
+const RegisterPage = () =>{
     const [verify,setVerify] = useState('');
     const initialState = {
         name:null,
@@ -20,7 +20,7 @@ const LoginPage = () =>{
         console.log('form submited');
         e.preventDefault();
         console.log(data);
-        axios.post('http://localhost:3000/user/signup',data)
+        axios.post('https://my-first-resturant.herokuapp.com/user/signup',data)
             .then(res=>{
                 alert('Registered Successfully');
                 loginpage();
@@ -36,6 +36,7 @@ const LoginPage = () =>{
     }
     return(
         <div className="login-page">
+            <div className="white-space"></div>
             <div className="login-img-div">
                 <img src={LoginImage} alt="resturant"  />
                 <h1>Good <span>Food</span></h1>
@@ -71,4 +72,4 @@ const LoginPage = () =>{
     );
 }
 
-export default LoginPage;
+export default RegisterPage;

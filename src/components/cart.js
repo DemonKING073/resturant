@@ -71,7 +71,7 @@ const Cart=()=>{
                 }
                 console.log(Order);
                 console.log(config);
-                axios.post('http://localhost:3000/orders/',Order)
+                axios.post('https://my-first-resturant.herokuapp.com/orders/',Order)
                     .then(res=>{
                         alert('Order Placed!')
                     })

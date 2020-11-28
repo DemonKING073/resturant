@@ -36,11 +36,11 @@ const Home=()=>{
         }
     }
     useEffect(()=>{
-        axios.get(`http://localhost:3000/user/${userId}`,config)
+        axios.get(`https://my-first-resturant.herokuapp.com/user/${userId}`,config)
             .then(res=>dispatch(fetchUserDetails(res.data)))
             .catch(err=>console.log(err));
             // eslint-disable-next-line
-        axios.get('http://localhost:3000/products/getSpecial/true')
+        axios.get('https://my-first-resturant.herokuapp.com/products/getSpecial/true')
         .then(res=>{
             setSpecial(res.data.specialProducts);
         })
@@ -85,11 +85,11 @@ const Home=()=>{
         <div className="card">
             {
                 special.length===0?
-                <p>No Datas</p>:
+                <p>Loading...</p>:
                 <Zoom {...zoomInProperties}>
                     {
                         special.map((item)=>{
-                            const a = `http://localhost:3000/${item.productImage}`;
+                            const a = `https://my-first-resturant.herokuapp.com/${item.productImage}`;
                             return(
                                 <div key={item._id}>
                                     <img className="images" src={a}  alt={item.name}/>

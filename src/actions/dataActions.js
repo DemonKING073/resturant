@@ -24,7 +24,7 @@ const fetchDataFailure = error =>{
 export const fetchData = () =>{
     return (dispatch) =>{
         dispatch(fetchDataRequest);
-        axios.get('http://localhost:3000/products')
+        axios.get('https://my-first-resturant.herokuapp.com/products')
             .then(res=>{
                 const data = res.data;
                 dispatch(fetchDataSuccess(data));

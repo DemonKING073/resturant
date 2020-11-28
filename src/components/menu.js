@@ -49,28 +49,28 @@ const Menu=()=>{
     useEffect(()=>{
         dispatch(fetchData());
         setWidth(window.innerWidth);
-        axios.get('http://localhost:3000/products/getSpecial/true')
+        axios.get('https://my-first-resturant.herokuapp.com/products/getSpecial/true')
         .then(res=>{
             setSpecial(res.data.specialProducts);
         })
         .catch(err=>{
             console.log(err);
         })
-        axios.get('http://localhost:3000/products/category/fastFood')
+        axios.get('https://my-first-resturant.herokuapp.com/products/category/fastFood')
         .then(res=>{
             setFFood(res.data.Products);
         })
         .catch(err=>{
             console.log(err);
         })
-        axios.get('http://localhost:3000/products/category/meals')
+        axios.get('https://my-first-resturant.herokuapp.com/products/category/meals')
         .then(res=>{
             setMeal(res.data.Products);
         })
         .catch(err=>{
             console.log(err);
         })
-        axios.get('http://localhost:3000/products/category/drinks')
+        axios.get('https://my-first-resturant.herokuapp.com/products/category/drinks')
         .then(res=>{
             setDrinks(res.data.Products);
         })
@@ -93,10 +93,10 @@ const Menu=()=>{
                 <div className="food-lists">
                     {
                         special.length===0?
-                        <h2>No Data</h2>:
+                        <h2>Loading...</h2>:
                         <Slider {...settings}>
                             {special.map((item,index)=>{
-                                const a = `http://localhost:3000/${item.productImage}`;
+                                const a = `https://my-first-resturant.herokuapp.com/${item.productImage}`;
                                 return(
                                     <div key={index}>
                                     <Card  lamo={addToCart} id={item._id} item={item} title={item.name} img={a} price={item.price} desc={item.productDesc}/>
@@ -113,10 +113,10 @@ const Menu=()=>{
                 <div className="food-lists">
                 {
                         fFood.length===0?
-                        <h2>No Data</h2>:
+                        <h2>Loading...</h2>:
                         <Slider {...settings}>
                             {fFood.map((item, index)=>{
-                                const a = `http://localhost:3000/${item.productImage}`
+                                const a = `https://my-first-resturant.herokuapp.com/${item.productImage}`
                                 return(
                                     <div key={index}>
                                     <Card  lamo={addToCart} id={item._id} item={item}  title={item.name} img={a} price={item.price} desc={item.productDesc}/>
@@ -133,10 +133,10 @@ const Menu=()=>{
                 <div className="food-lists">
                 {
                         meal.length===0?
-                        <h2>No Data</h2>:
+                        <h2>Loading...</h2>:
                         <Slider {...settings}>
                             {meal.map((item, index)=>{
-                                const a = `http://localhost:3000/${item.productImage}`
+                                const a = `https://my-first-resturant.herokuapp.com/${item.productImage}`
                                 return(
                                     <div key={index}>
                                     <Card  lamo={addToCart} id={item._id} item={item}  title={item.name} img={a} price={item.price} desc={item.productDesc}/>
@@ -153,10 +153,10 @@ const Menu=()=>{
                 <div className="food-lists">
                     {
                         drinks.length===0?
-                        <h2>No Data</h2>:
+                        <h2>Loading...</h2>:
                         <Slider {...settings}>
                             {drinks.map((item,index)=>{
-                                const a = `http://localhost:3000/${item.productImage}`
+                                const a = `https://my-first-resturant.herokuapp.com/${item.productImage}`
                                 return(
                                     <div key={index}>
                                     <Card lamo={addToCart} id={item._id} item={item}  title={item.name} img={a} price={item.price} desc={item.productDesc}/>
