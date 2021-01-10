@@ -18,7 +18,7 @@ const Menu=()=>{
     const [meal, setMeal] = useState([]);
     let x= 0;
     const [width,setWidth] = useState(1366);
-    if(width>1365){
+    if(width>1300){
         x=4
     }else if(width<1355 && width>902){
         x = 3
@@ -27,6 +27,7 @@ const Menu=()=>{
     }else{
         x=1
     }
+    console.log(x)
     const Items = useSelector(state=>state.cart.items);
     const dispatch = useDispatch();
     const addToCart = (product) =>{
